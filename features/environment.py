@@ -25,14 +25,14 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    context.driver = webdriver.Chrome(executable_path="./chromedriver")
+    # context.driver = webdriver.Chrome(executable_path="./chromedriver")
     # context.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
     # context.driver = webdriver.Safari()
 
     # HEADLESS MODE
-    # options =webdriver.ChromeOptions()
-    # options.add_argument('--headless')
-    # context.driver = webdriver.Chrome(chrome_options=options, executable_path='')
+    options =webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    context.driver = webdriver.Chrome(chrome_options=options, executable_path='./chromedriver')
 
     ### EventFiringWebDriver - log file ###
     ### for drivers ###
@@ -53,7 +53,7 @@ def browser_init(context, test_name):
     # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
-    context.driver.implicitly_wait(5)
+    context.driver.implicitly_wait(3)
     context.driver.wait = WebDriverWait(context.driver, timeout=10)
 
     context.app = Application(context.driver)
