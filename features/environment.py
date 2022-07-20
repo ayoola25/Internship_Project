@@ -26,7 +26,7 @@ def browser_init(context, test_name):
     :param test_name: scenario.name
     """
     # context.driver = webdriver.Chrome(executable_path="./chromedriver")
-    # context.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
+    # cbehaveontext.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
     # context.driver = webdriver.Safari()
 
     # HEADLESS MODE
