@@ -25,7 +25,7 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    # context.driver = webdriver.Chrome(executable_path="./chromedriver")
+    context.driver = webdriver.Chrome(executable_path="./chromedriver")
     # context.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
     # context.driver = webdriver.Safari()
 
@@ -41,16 +41,16 @@ def browser_init(context, test_name):
     # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options = options), MyListener())
 
     ### for browerstack ###
-    desired_cap = {
-        'browser': 'Firefox',    #'Chrome',
-        'os': 'Windows',
-        'os_version': '10',
-        'browser_version': 'latest',
-        'browserstack.local': 'false',
-        'name': test_name
-    }
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    # desired_cap = {
+    #     'browser': 'Firefox',    #'Chrome',
+    #     'os': 'Windows',
+    #     'os_version': '10',
+    #     'browser_version': 'latest',
+    #     'browserstack.local': 'false',
+    #     'name': test_name
+    # }
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
