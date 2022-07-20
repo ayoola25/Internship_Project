@@ -18,6 +18,7 @@ bs_key = 'L9EXxsyy9wxVm8yS6zMU'
 
 # Allure command:
 # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/product_page.feature
+# allure serve test_results/
 
 
 def browser_init(context, test_name):
