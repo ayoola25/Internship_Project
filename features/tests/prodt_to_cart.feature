@@ -2,7 +2,7 @@
 Feature: Test for Added Product
 
  Scenario: Verify that user can add product to the cart
-   Given Open GitTop page
+   Given Open GetTop page
    When Click on Product Link
    And Click on first product
    And Click on Add to cart button

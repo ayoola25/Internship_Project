@@ -11,8 +11,8 @@ CART = (By.CSS_SELECTOR, "[class='cart-icon image-icon']")
 IPHONE_12 = (By.XPATH, "//li[@id='menu-item-484']//a[@href='#']")
 
 
-@given('Open GitTop page')
-def open_amazon(context):
+@given('Open GetTop page')
+def open_getTop(context):
     # context.driver.get('https://gettop.us/')
     context.app.main_page.open_main_page()
 

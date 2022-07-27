@@ -2,7 +2,7 @@
 Feature: Test for Product Link search
 
   Scenario: User can select and search from a Product Link
-    Given Open GitTop page
+    Given Open GetTop page
     When Hover over IPAD link
     And Click on iPad
     Then Verify IPAD link is selected

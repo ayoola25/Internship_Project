@@ -16,6 +16,7 @@ from support.logger import logger, MyListener
 bs_user = 'ayoolaladapo_81yBFZ'
 bs_key = 'L9EXxsyy9wxVm8yS6zMU'
 
+
 # Allure command:
 # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/product_page.feature
 # allure serve test_results/
@@ -27,8 +28,13 @@ def browser_init(context, test_name):
     :param test_name: scenario.name
     """
     # context.driver = webdriver.Chrome(executable_path="./chromedriver")
-    # cbehaveontext.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
+    # context.driver = webdriver.Firefox(executable_path='C:\\Users\\EZ-Trainer\\Desktop\\python-selenium-automation\\geckodriver.exe')
     # context.driver = webdriver.Safari()
+
+    # options = webdriver.ChromeOptions()
+    # mobile_emulation = {"deviceName": "Pixel 5"}
+    # options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # context.driver = webdriver.Chrome(chrome_options=options, executable_path='./chromedriver')
 
     # HEADLESS MODE
     # options =webdriver.ChromeOptions()
@@ -42,20 +48,33 @@ def browser_init(context, test_name):
     # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options = options), MyListener())
 
     ### for browerstack ###
+    # desired_cap = {
+    #     'browser': 'Firefox',    #'Chrome',
+    #     'os': 'Windows',
+    #     'os_version': '10',
+    #     'browser_version': 'latest',
+    #     'browserstack.local': 'false',
+    #     'name': test_name
+    # }
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+
+    ### BrowserStack for Mobile Web Testing ###
     desired_cap = {
-        'browser': 'Firefox',    #'Chrome',
-        'os': 'Windows',
-        'os_version': '10',
-        'browser_version': 'latest',
-        'browserstack.local': 'false',
-        'name': test_name
+        'bstack:options': {
+            "osVersion": "12",
+            "deviceName": "Google Pixel 5",
+            "realMobile": "true",
+            "local": "false",
+        },
+        "browserName": "chrome",
     }
     url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
-    context.driver.implicitly_wait(3)
-    context.driver.wait = WebDriverWait(context.driver, timeout=10)
+    context.driver.implicitly_wait(5)
+    context.driver.wait = WebDriverWait(context.driver, timeout=200)
 
     context.app = Application(context.driver)
 

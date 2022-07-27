@@ -6,7 +6,8 @@ from pages.base_page import Page
 
 
 class Header(Page):
-    ICON_BTN = (By.CSS_SELECTOR, "a[href='https://gettop.us/cart/']")
+    # ICON_BTN = (By.CSS_SELECTOR, "a[href='https://gettop.us/cart/']")
+    ICON_BTN = (By.CSS_SELECTOR, "a.header-cart-link.off-canvas-toggle.nav-top-link.is-small") # for mobile web
     PRODUCT = (By.XPATH, "//p[@class='name product-title']//a[@href='https://gettop.us/product/ipad/']")
     PRODUCT_LINK = (By.ID, 'menu-item-470')
     IPHONE_LINK = (By.XPATH, "//li[@id='menu-item-469']//a[@href='https://gettop.us/product-category/iphone/']")
@@ -27,7 +28,7 @@ class Header(Page):
         self.wait_for_element_appear(*self.PRODUCT_LINK)
 
     def click_on_cart_icon(self):
-        self.click(*self.ICON_BTN)
+        self.wait_for_element_click(*self.ICON_BTN)
 
 
 
